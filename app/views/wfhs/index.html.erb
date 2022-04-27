@@ -1,0 +1,51 @@
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">My WFH</h4>
+       <% @wfhs.each do |wfh| %><hr>
+       <h4><%= link_to "WFH #{wfh.id}", wfh_path(wfh.id), {style: 'color: black'} %></h4>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Availability From: <%= wfh.availability_from %></h5>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Availability To: <%= wfh.availability_to %></h5>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Reason: <%= wfh.reason %></h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Status: <%= wfh.status %></h5>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <%= link_to 'Edit', edit_wfh_path(wfh.id), class: 'btn btn-warning' %>
+            </div>
+            <div class="col-md-1">
+              <%= button_to 'Delete', wfh_path(wfh.id), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+ <%= paginate @wfhs %>

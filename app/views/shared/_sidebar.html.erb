@@ -1,0 +1,100 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-bs-toggle="collapse"
+        href="#ui-basic"
+        aria-expanded="false"
+        aria-controls="ui-basic">
+        <i class="menu-icon mdi mdi-account-circle-outline"></i>
+        <span class="menu-title"> Employee</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'List Of Employee', employees_path, class: 'nav-link ' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Birthdays', birthdays_path, class: 'nav-link ' %>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-bs-toggle="collapse"
+        href="#address"
+        aria-expanded="false"
+        aria-controls="address">
+        <i class="menu-icon mdi mdi-account-circle-outline"></i>
+        <span class="menu-title"> Address</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="address">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'Address Form', new_address_path, class: ' nav-link ' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'My Addresses', addresses_path, class: ' nav-link ' %>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-bs-toggle="collapse"
+        href="#leaves"
+        aria-expanded="false"
+        aria-controls="ui-basic">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title"> Leaves</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="leaves">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'Leave Types', leave_infos_path, class: ' nav-link ' %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse" id="leaves">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'My Leaves', emp_leave_infos_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse" id="leaves">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'My WFH', wfhs_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse" id="leaves">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to 'Leave/WFH Today', today_leaves_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

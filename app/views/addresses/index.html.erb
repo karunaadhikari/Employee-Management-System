@@ -1,0 +1,75 @@
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">My Addresses</h4>
+       <% @addresses.each do |address| %><hr>
+       <h4><%= link_to "#{address.kind} Address".titleize, address_path(address.id), {style: 'color: black'} %></h4>
+       <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Country: <%= address.country %></h5>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>State: <%= address.state %></h5>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>District: <%= address.district %></h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>City: <%= address.city %></h5>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Street: <%= address.street %></h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>House No.: <%= address.house_no %></h5>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                    <h5>Kind: <%= address.kind %></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <%= link_to 'Edit', edit_address_path(address.id), class: 'btn btn-warning' %>
+          </div>
+          <div class="col-1">
+            <%= button_to 'Delete', address_path(address.id), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<%= form_with url: kyc_path, model: kyc do |form| %>
+  <% if kyc.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <%= pluralize(kyc.errors.count, 'error') %> occured in the form.
+      <ul class="mb-0">
+      <% kyc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if kyc.approved? %>
+     <fieldset disabled="disabled">
+    <% else %>
+      <fieldset>
+  <% end %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+        <%= form.label :marital_status %><br>
+          <%= form.select :marital_status, Kyc.marital_statuses.keys.map { |w| [w.humanize, w] }, {}, {class: 'form-control'} %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :dob %><br>
+          <%= form.date_field :dob, class: 'form-control' %>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :phone %><br>
+          <%= form.phone_field :phone, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :spouse_name %><br>
+          <%= form.text_field :spouse_name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :spouse_phone %>
+          <small class="text-muted text-small">(Optional)</small><br>
+          <%= form.phone_field :spouse_phone, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :spouse_email %>
+          <small class="text-muted text-small">(Optional)</small><br>
+          <%= form.email_field :spouse_email, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    </fieldset>
+
+    <% if !kyc.approved? %>
+      <div class="form-group">
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>

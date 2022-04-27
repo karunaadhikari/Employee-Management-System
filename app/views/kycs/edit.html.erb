@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">
+          KYC Form:
+          <% if @kyc.approved? %>
+            <span class="text-success"><%= @kyc.status %></span>
+          <% elsif @kyc.requested? %>
+            <span class="text-warning"><%= @kyc.status %></span>
+          <% else %>
+            <span class="text-danger"><%= @kyc.status %></span>
+          <% end %>
+        </h4>
+        <p class="card-description">
+          Edit the fields below.
+        </p>
+        <%= render 'form', kyc: @kyc %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+<h1>Welcome To EMS, <%= @employee.email %>!</h1>
+<p>To access the new site,
+<%= link_to 'please first click this link to set your password', edit_employee_password_url(reset_password_token: @token), html_options = {style: 'font-weight: bold'} %>.</p>

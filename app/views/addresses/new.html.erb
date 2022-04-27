@@ -1,0 +1,74 @@
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Address Form</h4>
+      <%= simple_form_for @address do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">Country</label>
+              <div class="col-sm-9">
+                <%= f.input :country, label: false, class: 'form-control', priority: ['Nepal'], collection: %w[Japan Nepal] %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">State</label>
+              <div class="col-sm-9">
+                <%= f.input :state, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">District</label>
+              <div class="col-sm-9">
+                <%= f.input :district, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">City</label>
+              <div class="col-sm-9">
+                <%= f.input :city, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">Street</label>
+              <div class="col-sm-9">
+                <%= f.input :street, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">House No.</label>
+              <div class="col-sm-9">
+                <%= f.input :house_no, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">Kind</label>
+              <div class="col-sm-9">
+                <%= f.input :kind, label: false, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary me-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

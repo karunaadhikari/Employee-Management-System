@@ -1,0 +1,60 @@
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">LEAVE APPLICATION</h4>
+      <%= simple_form_for @emp_leave_info do |f| %>
+      <% if @emp_leave_info.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <%= pluralize(@emp_leave_info.errors.count, 'error') %> errors occured in the form.
+      <ul class="mb-0">
+      <% @emp_leave_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      </div>
+      <% end %>
+        <p class="card-description">
+          Leave info:
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row-md-4">
+              <%= f.label :date_from %>
+              <div class="col-sm-9">
+                <%= f.text_field :date_from, placeholder: 'dd/mm/yy', autofocus: true, type: 'date', id: 'dateinput', autocomplete: 'date_from', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row-md-4">
+              <%= f.label :date_to %>
+              <small class="text-muted text-small">(Optional)</small><br>
+              <div class="col-sm-9">
+                <%= f.text_field :date_to, placeholder: 'dd/mm/yy', autofocus: true, type: 'date', id: 'dateinput', autocomplete: 'date_from', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row-md-4">
+              <%= f.label :reason %>
+              <div class="col-sm-9">
+                <%= f.text_area :reason, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+               <%= f.association :leave_info %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+        <%= f.submit 'Cancel', class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

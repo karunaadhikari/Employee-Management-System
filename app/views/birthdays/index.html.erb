@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-12 bg-white rounded p-2">
+
+    <!-- Today Birthdays -->
+    <% if @today_birthdays.empty? %>
+      <h4 class="text-center mt-2 mb-5">There are no birthdays today.</h4>
+    <% else %>
+      <div class="today-birthdays border-bottom mb-5">
+        <h4 class="my-4 text-center">
+          List of Today Birthdays
+        </h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Birthday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @today_birthdays.each do |kyc| %>
+              <tr>
+                <td><%= kyc.employee.full_name %></td>
+                <td><%= kyc.dob.strftime('%B %d') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    <!-- ---- -->
+
+    <!-- Upcoming Birthdays -->
+    <div class="upcoming-birthdays border-bottom mb-5">
+      <h4 class="my-4 text-center">
+        List of All Birthdays
+      </h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Birthday</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @upcoming_birthdays.each do |kyc| %>
+            <tr>
+              <td><%= kyc.employee.full_name %></td>
+              <td><%= kyc.dob.strftime('%B %d') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- ----------- -->
+    </div>
+</div>

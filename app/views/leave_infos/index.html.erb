@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Kind </th>
+      <th scope="col">Default_days</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @leave_infos.each do |leave_type| %>
+    <tr>
+      <td scope="col"><%= leave_type.kind %></td>
+      <td scope="col"><%= leave_type.default_days %> </td>
+      <td scope="col"><%= leave_type.description %></td>
+      <td scope="col"><%= leave_type.status %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

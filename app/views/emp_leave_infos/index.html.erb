@@ -1,0 +1,52 @@
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">MY LEAVES</h4>
+      <% @emp_leave_infos.each do |emp_leave_info| %><hr>
+      <h4><%= link_to "LEAVE #{emp_leave_info.id}", emp_leave_info_path(emp_leave_info.id), {style: 'color: black'} %></h4>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <h5>Date From: <%= emp_leave_info.date_from %></h5>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+              <div class="col-sm-9">
+                <h5>Date To: <%= emp_leave_info.date_to %></h5>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <div class="col-sm-9">
+              <h5>Reason: <%= emp_leave_info.reason %></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <div class="col-sm-9">
+              <h5>Leave Info: <%= emp_leave_info.status %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+          <%= link_to 'Edit', edit_emp_leave_info_path(emp_leave_info.id), class: 'btn btn-primary' %>
+        </div>
+        <div class="col-md-1">
+          <%= button_to 'Delete', emp_leave_info_path(emp_leave_info.id), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= paginate @emp_leave_infos %>

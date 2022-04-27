@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= @employee.fname.capitalize %>'s information:</h4>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Full Name</strong>
+              <span><%= @employee.full_name.capitalize %></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Position</strong>
+              <span><%= @employee.position.capitalize %></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Gender</strong>
+              <span><%= @employee.gender.capitalize %></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Email Address</strong>
+              <span><%= @employee.email %></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Status</strong>
+              <span><%= @employee.status.capitalize %></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <strong>Join Date</strong>
+              <span><%= @employee.join_date %></span>
+            </li>
+
+            <% if @kyc && @employee == current_employee %>
+              <li class="list-group-item d-flex justify-content-between">
+                <strong>Phone Number</strong>
+                <span><%= @kyc.phone %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <strong>Date of Birth</strong>
+                <span><%= @kyc.dob %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <strong>Marital Status</strong>
+                <span><%= @kyc.marital_status.capitalize %></span>
+              </li>
+              <% if !@kyc.single? && current_employee == @employee %>
+                <li class="list-group-item d-flex justify-content-between">
+                  <strong>Spouse Name</strong>
+                  <span><%= @kyc.spouse_name.capitalize %></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <strong>Spouse Phone</strong>
+                  <span><%= @kyc.spouse_phone %></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <strong>Spouse Email</strong>
+                  <span><%= @kyc.spouse_email %></span>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+
+          <% if current_employee == @employee %>
+            <div class="d-flex justify-content-end">
+              <%= link_to 'View My WFH', wfhs_path, class: 'btn btn-outline-primary' %>
+            </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

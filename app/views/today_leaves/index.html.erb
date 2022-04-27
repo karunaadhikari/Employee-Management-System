@@ -1,0 +1,39 @@
+<% if @today_leaves.empty? || @today_wfhs.empty? %>
+  <h4 class="text-center mt-2 mb- fw-bold">Today, no one has taken leave and is not working from home!</h4>
+  <% else %>
+    <div class="today-date border-bottom mb-5">
+      <h4 class="my-4 text">
+        List of Employees
+      </h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @today_leaves.each do |leave| %>
+            <tr>
+              <td><%= leave.employee.fname %></td>
+              <td><%= leave.employee.lname %></td>
+              <td><%= leave.employee.position %></td>
+              <td><%= leave.leave_info.kind %><a>(Leave)</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+         <tbody>
+          <% @today_wfhs.each do |wfh| %>
+            <tr>
+              <td><%= wfh.employee.fname %></td>
+              <td><%= wfh.employee.lname %></td>
+              <td><%= wfh.employee.position %></td>
+              <td><a>Wfh Today</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+<% end %>
